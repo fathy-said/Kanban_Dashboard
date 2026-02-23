@@ -1,4 +1,4 @@
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, alpha } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { TaskCard } from "../molecules/TaskCard";
 import { ColumnHeader } from "../molecules/ColumnHeader";
@@ -28,14 +28,16 @@ export const TaskColumn = ({
       elevation={0}
       sx={{
         flex: 1,
-        minWidth: 280,
-        maxWidth: 350,
+        minWidth: 300,
+        maxWidth: 360,
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "background.default",
-        borderRadius: 2,
-        p: 2,
+        backgroundColor: alpha("#f8fafc", 0.6),
+        borderRadius: 3,
+        p: 2.5,
+        border: "1px solid",
+        borderColor: "divider",
       }}
     >
       <ColumnHeader column={column} count={tasks.length} />
@@ -45,16 +47,18 @@ export const TaskColumn = ({
           flex: 1,
           overflowY: "auto",
           overflowX: "hidden",
-          maxHeight: "calc(100vh - 250px)",
+          maxHeight: "calc(100vh - 280px)",
+          mx: -0.5,
+          px: 0.5,
           "&::-webkit-scrollbar": {
-            width: 6,
+            width: 4,
           },
           "&::-webkit-scrollbar-track": {
             backgroundColor: "transparent",
           },
           "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "action.hover",
-            borderRadius: 3,
+            backgroundColor: alpha("#cbd5e1", 0.5),
+            borderRadius: 2,
           },
         }}
       >
@@ -75,8 +79,17 @@ export const TaskColumn = ({
         onClick={() => onAddTask(column)}
         sx={{
           mt: 2,
+          py: 1,
           borderStyle: "dashed",
-          justifyContent: "flex-start",
+          borderWidth: 1.5,
+          justifyContent: "center",
+          color: "text.secondary",
+          borderColor: "divider",
+          "&:hover": {
+            borderColor: "primary.main",
+            color: "primary.main",
+            backgroundColor: alpha("#6366f1", 0.04),
+          },
         }}
       >
         Add Task
