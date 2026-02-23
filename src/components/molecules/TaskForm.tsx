@@ -1,4 +1,5 @@
 import { Box, MenuItem, Stack } from "@mui/material";
+import { useState } from "react";
 import { Input } from "../atoms/Input";
 import { Button } from "../atoms/Button";
 import { Typography } from "../atoms/Typography";
@@ -11,20 +12,32 @@ import { COLUMN_LABELS } from "../../features/tasks/constants/column.constants";
 
 interface TaskFormProps {
   task?: Task;
+  defaultColumn?: TaskColumn;
   onSubmit: (data: TaskFormData) => void;
   onCancel: () => void;
 }
 
-export const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+export const TaskForm = ({
+  task,
+  defaultColumn = "backlog",
+  onSubmit,
+  onCancel,
+}: TaskFormProps) => {
+  const [formData, setFormData] = useState<TaskFormData>({
+    title: task?.title || "",
+    description: task?.description || "",
+    column: task?.column || defaultColumn,
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    onSubmit({
-      title: formData.get("title") as string,
-      description: formData.get("description") as string,
-      column: formData.get("column") as TaskColumn,
-    });
+    onSubmit(formData);
   };
+
+  const handleChange =
+    (field: keyof TaskFormData) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+    };
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
@@ -36,7 +49,8 @@ export const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         <Input
           name="title"
           label="Title"
-          defaultValue={task?.title}
+          value={formData.title}
+          onChange={handleChange("title")}
           fullWidth
           required
           placeholder="Enter task title..."
@@ -45,7 +59,8 @@ export const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         <Input
           name="description"
           label="Description"
-          defaultValue={task?.description}
+          value={formData.description}
+          onChange={handleChange("description")}
           fullWidth
           multiline
           rows={4}
@@ -55,7 +70,8 @@ export const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         <Input
           name="column"
           label="Status"
-          defaultValue={task?.column || "backlog"}
+          value={formData.column}
+          onChange={handleChange("column")}
           fullWidth
           required
           select

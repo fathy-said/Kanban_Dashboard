@@ -1,0 +1,644 @@
+{
+  "tasks": [
+    {
+      "id": "b1",
+      "title": "Set up CI/CD pipeline",
+      "column": "backlog",
+      "order": 0.5
+    },
+    {
+      "id": "b2",
+      "title": "Implement authentication",
+      "column": "in_progress",
+      "order": null
+    },
+    {
+      "id": "b3",
+      "title": "Design database schema",
+      "column": "backlog"
+    },
+    {
+      "id": "b4",
+      "title": "Create API structure",
+      "column": "in_progress",
+      "order": -0.5
+    },
+    {
+      "id": "b5",
+      "title": "Set up Docker",
+      "column": "backlog"
+    },
+    {
+      "id": "b6",
+      "title": "Fix responsive issues",
+      "column": "backlog"
+    },
+    {
+      "id": "b7",
+      "title": "Implement search",
+      "column": "backlog"
+    },
+    {
+      "id": "b8",
+      "title": "Add i18n support",
+      "column": "backlog"
+    },
+    {
+      "id": "b9",
+      "title": "Configure SSL",
+      "column": "backlog"
+    },
+    {
+      "id": "b10",
+      "title": "Email notifications",
+      "column": "backlog"
+    },
+    {
+      "id": "b11",
+      "title": "Audit logging",
+      "column": "backlog"
+    },
+    {
+      "id": "b12",
+      "title": "Add data visualization",
+      "column": "backlog"
+    },
+    {
+      "id": "b13",
+      "title": "Accessibility improvements",
+      "column": "backlog"
+    },
+    {
+      "id": "b14",
+      "title": "Improve onboarding UX",
+      "column": "backlog"
+    },
+    {
+      "id": "b15",
+      "title": "Refactor API services",
+      "column": "backlog"
+    },
+    {
+      "id": "b16",
+      "title": "Setup feature flags",
+      "column": "backlog"
+    },
+    {
+      "id": "b17",
+      "title": "Integrate payment gateway",
+      "column": "backlog"
+    },
+    {
+      "id": "b18",
+      "title": "Add multi-factor auth",
+      "column": "backlog"
+    },
+    {
+      "id": "b19",
+      "title": "Create onboarding emails",
+      "column": "backlog"
+    },
+    {
+      "id": "b20",
+      "title": "Improve logging format",
+      "column": "backlog"
+    },
+    {
+      "id": "b21",
+      "title": "Implement SSO",
+      "column": "backlog"
+    },
+    {
+      "id": "b22",
+      "title": "Optimize frontend bundle",
+      "column": "backlog"
+    },
+    {
+      "id": "b23",
+      "title": "Add theme customization",
+      "column": "backlog"
+    },
+    {
+      "id": "b24",
+      "title": "Improve search ranking",
+      "column": "backlog"
+    },
+    {
+      "id": "b25",
+      "title": "Add activity timeline",
+      "column": "backlog"
+    },
+    {
+      "id": "b26",
+      "title": "Upgrade dependencies",
+      "column": "backlog"
+    },
+    {
+      "id": "b27",
+      "title": "Improve error UI",
+      "column": "backlog"
+    },
+    {
+      "id": "b28",
+      "title": "Add API documentation UI",
+      "column": "backlog"
+    },
+    {
+      "id": "b29",
+      "title": "Setup staging DB replica",
+      "column": "backlog"
+    },
+    {
+      "id": "b30",
+      "title": "Create onboarding tutorial",
+      "column": "backlog"
+    },
+    {
+      "id": "p1",
+      "title": "Write unit tests",
+      "column": "in_progress",
+      "order": -1
+    },
+    {
+      "id": "p2",
+      "title": "Implement error handling",
+      "column": "in_progress"
+    },
+    {
+      "id": "p3",
+      "title": "Create dashboard UI",
+      "column": "in_progress"
+    },
+    {
+      "id": "p4",
+      "title": "Optimize DB queries",
+      "column": "in_progress"
+    },
+    {
+      "id": "p5",
+      "title": "Add validation rules",
+      "column": "in_progress"
+    },
+    {
+      "id": "p6",
+      "title": "Build admin panel",
+      "column": "in_progress"
+    },
+    {
+      "id": "p7",
+      "title": "File upload feature",
+      "column": "in_progress"
+    },
+    {
+      "id": "p8",
+      "title": "Realtime notifications",
+      "column": "in_progress"
+    },
+    {
+      "id": "p9",
+      "title": "Optimize images",
+      "column": "in_progress"
+    },
+    {
+      "id": "p10",
+      "title": "Analytics integration",
+      "column": "in_progress"
+    },
+    {
+      "id": "p11",
+      "title": "Pagination logic",
+      "column": "in_progress"
+    },
+    {
+      "id": "p12",
+      "title": "Role-based access",
+      "column": "in_progress"
+    },
+    {
+      "id": "p13",
+      "title": "Rate limiting middleware",
+      "column": "in_progress"
+    },
+    {
+      "id": "p14",
+      "title": "Error tracking setup",
+      "column": "in_progress"
+    },
+    {
+      "id": "p15",
+      "title": "Session management",
+      "column": "in_progress"
+    },
+    {
+      "id": "p16",
+      "title": "API caching layer",
+      "column": "in_progress"
+    },
+    {
+      "id": "p17",
+      "title": "Frontend refactor",
+      "column": "in_progress"
+    },
+    {
+      "id": "p18",
+      "title": "Backend performance tuning",
+      "column": "in_progress"
+    },
+    {
+      "id": "p19",
+      "title": "Notification templates",
+      "column": "in_progress"
+    },
+    {
+      "id": "p20",
+      "title": "Audit logs storage",
+      "column": "in_progress"
+    },
+    {
+      "id": "p21",
+      "title": "Add export feature",
+      "column": "in_progress"
+    },
+    {
+      "id": "p22",
+      "title": "Improve caching strategy",
+      "column": "in_progress"
+    },
+    {
+      "id": "p23",
+      "title": "Fix race conditions",
+      "column": "in_progress"
+    },
+    {
+      "id": "p24",
+      "title": "Refactor auth flow",
+      "column": "in_progress"
+    },
+    {
+      "id": "p25",
+      "title": "UI animation improvements",
+      "column": "in_progress"
+    },
+    {
+      "id": "p26",
+      "title": "Improve test coverage",
+      "column": "in_progress"
+    },
+    {
+      "id": "p27",
+      "title": "API response optimization",
+      "column": "in_progress"
+    },
+    {
+      "id": "p28",
+      "title": "Dark mode improvements",
+      "column": "in_progress"
+    },
+    {
+      "id": "p29",
+      "title": "Service worker update",
+      "column": "in_progress"
+    },
+    {
+      "id": "p30",
+      "title": "Mobile responsiveness fixes",
+      "column": "in_progress"
+    },
+    {
+      "id": "r1",
+      "title": "Monitoring configuration",
+      "column": "review"
+    },
+    {
+      "id": "r2",
+      "title": "Security audit review",
+      "column": "in_progress",
+      "order": -1.25
+    },
+    {
+      "id": "r3",
+      "title": "Documentation updates",
+      "column": "review"
+    },
+    {
+      "id": "r4",
+      "title": "Performance test results",
+      "column": "review"
+    },
+    {
+      "id": "r5",
+      "title": "Code quality review",
+      "column": "review"
+    },
+    {
+      "id": "r6",
+      "title": "Deployment validation",
+      "column": "review"
+    },
+    {
+      "id": "r7",
+      "title": "Backup validation",
+      "column": "review"
+    },
+    {
+      "id": "r8",
+      "title": "Logging audit",
+      "column": "review"
+    },
+    {
+      "id": "r9",
+      "title": "API documentation review",
+      "column": "review"
+    },
+    {
+      "id": "r10",
+      "title": "Load testing results",
+      "column": "review"
+    },
+    {
+      "id": "r11",
+      "title": "UX review",
+      "column": "review"
+    },
+    {
+      "id": "r12",
+      "title": "Accessibility testing",
+      "column": "review"
+    },
+    {
+      "id": "r13",
+      "title": "Penetration testing",
+      "column": "review"
+    },
+    {
+      "id": "r14",
+      "title": "SEO review",
+      "column": "review"
+    },
+    {
+      "id": "r15",
+      "title": "Analytics validation",
+      "column": "review"
+    },
+    {
+      "id": "r16",
+      "title": "UI consistency check",
+      "column": "review"
+    },
+    {
+      "id": "r17",
+      "title": "Feature flag review",
+      "column": "review"
+    },
+    {
+      "id": "r18",
+      "title": "Notification flow review",
+      "column": "review"
+    },
+    {
+      "id": "r19",
+      "title": "Data export validation",
+      "column": "review"
+    },
+    {
+      "id": "r20",
+      "title": "Permission system audit",
+      "column": "review"
+    },
+    {
+      "id": "r21",
+      "title": "Caching behavior review",
+      "column": "review"
+    },
+    {
+      "id": "r22",
+      "title": "API contract validation",
+      "column": "review"
+    },
+    {
+      "id": "r23",
+      "title": "Error handling review",
+      "column": "review"
+    },
+    {
+      "id": "r24",
+      "title": "UI dark mode review",
+      "column": "review"
+    },
+    {
+      "id": "r25",
+      "title": "Mobile UX review",
+      "column": "review"
+    },
+    {
+      "id": "r26",
+      "title": "Security headers validation",
+      "column": "review"
+    },
+    {
+      "id": "r27",
+      "title": "Dependency audit",
+      "column": "review"
+    },
+    {
+      "id": "r28",
+      "title": "Integration testing review",
+      "column": "review"
+    },
+    {
+      "id": "r29",
+      "title": "WebSocket performance review",
+      "column": "review"
+    },
+    {
+      "id": "r30",
+      "title": "Final QA pass",
+      "column": "review"
+    },
+    {
+      "id": "d1",
+      "title": "Deploy to staging",
+      "column": "done"
+    },
+    {
+      "id": "d2",
+      "title": "Setup logging system",
+      "column": "done"
+    },
+    {
+      "id": "d3",
+      "title": "Backup strategy implemented",
+      "column": "done"
+    },
+    {
+      "id": "d4",
+      "title": "Redis caching added",
+      "column": "done"
+    },
+    {
+      "id": "d5",
+      "title": "User acceptance testing completed",
+      "column": "done"
+    },
+    {
+      "id": "d6",
+      "title": "Dark mode implemented",
+      "column": "done"
+    },
+    {
+      "id": "d7",
+      "title": "Keyboard shortcuts added",
+      "column": "done"
+    },
+    {
+      "id": "d8",
+      "title": "Mobile app created",
+      "column": "done"
+    },
+    {
+      "id": "d9",
+      "title": "Offline support added",
+      "column": "done"
+    },
+    {
+      "id": "d10",
+      "title": "CDN configured",
+      "column": "done"
+    },
+    {
+      "id": "d11",
+      "title": "Core API deployed",
+      "column": "done"
+    },
+    {
+      "id": "d12",
+      "title": "Initial DB migration",
+      "column": "done"
+    },
+    {
+      "id": "d13",
+      "title": "Project scaffolding",
+      "column": "done"
+    },
+    {
+      "id": "d14",
+      "title": "Environment setup",
+      "column": "done"
+    },
+    {
+      "id": "d15",
+      "title": "Linting configured",
+      "column": "done"
+    },
+    {
+      "id": "d16",
+      "title": "Formatter setup",
+      "column": "done"
+    },
+    {
+      "id": "d17",
+      "title": "Git hooks configured",
+      "column": "done"
+    },
+    {
+      "id": "d18",
+      "title": "Base UI components built",
+      "column": "done"
+    },
+    {
+      "id": "d19",
+      "title": "Auth prototype complete",
+      "column": "done"
+    },
+    {
+      "id": "d20",
+      "title": "Initial wireframes created",
+      "column": "done"
+    },
+    {
+      "id": "d21",
+      "title": "Staging environment ready",
+      "column": "done"
+    },
+    {
+      "id": "d22",
+      "title": "Docker images built",
+      "column": "done"
+    },
+    {
+      "id": "d23",
+      "title": "Basic routing setup",
+      "column": "done"
+    },
+    {
+      "id": "d24",
+      "title": "Health check endpoint",
+      "column": "done"
+    },
+    {
+      "id": "d25",
+      "title": "Base layout completed",
+      "column": "done"
+    },
+    {
+      "id": "d26",
+      "title": "Initial test suite",
+      "column": "done"
+    },
+    {
+      "id": "d27",
+      "title": "API versioning added",
+      "column": "done"
+    },
+    {
+      "id": "d28",
+      "title": "Static assets configured",
+      "column": "done"
+    },
+    {
+      "id": "d29",
+      "title": "Project documentation created",
+      "column": "done"
+    },
+    {
+      "id": "d30",
+      "title": "Repository initialized",
+      "column": "done"
+    },
+    {
+      "id": "09bcd1c0-5b5e-4fde-b054-06657bc5b1d7",
+      "title": "test",
+      "description": "asfsdaf",
+      "column": "backlog",
+      "order": 0
+    },
+    {
+      "id": "4602e233-fae2-4a55-af63-31d0888519bf",
+      "title": "sadfaf",
+      "description": "dsfasf",
+      "column": "in_progress",
+      "order": 0
+    },
+    {
+      "id": "cadd7db9-8570-4f5d-9714-975cc4542e2a",
+      "title": "sdafafaafds",
+      "description": "fasfafdsafasfafasdfadf",
+      "column": "in_progress",
+      "order": 0
+    },
+    {
+      "id": "d986d562-cf3a-47bc-96c6-ba25020c8a99",
+      "title": "New Task New Task",
+      "description": "New Task\n",
+      "column": "in_progress",
+      "order": 0
+    },
+    {
+      "id": "3b218ec6-5d3f-408c-96f5-f52d62b25e94",
+      "title": "adsfafasfasfsafasfaf",
+      "description": "asdfasfasfdadfafaf",
+      "column": "backlog",
+      "order": -1
+    }
+  ]
+}

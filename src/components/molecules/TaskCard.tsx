@@ -15,111 +15,112 @@ interface TaskCardProps {
 
 export const TaskCard = ({ task, index, onEdit, onDelete }: TaskCardProps) => {
   return (
-    <Draggable draggableId={task.id} index={index}>
+    <Draggable draggableId={String(task.id)} index={index}>
       {(provided, snapshot) => (
-        <Card
+        <div
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          sx={{
-            mb: 1.5,
-            cursor: snapshot.isDragging ? "grabbing" : "grab",
-            position: "relative",
-            overflow: "visible",
-            border: "1px solid",
-            borderColor: snapshot.isDragging ? "primary.main" : "transparent",
-            boxShadow: snapshot.isDragging ? 4 : undefined,
-            transform: snapshot.isDragging ? "rotate(2deg)" : undefined,
-            transition: "all 0.2s ease-in-out",
-            opacity: snapshot.isDragging ? 0.9 : 1,
-            "&:hover": {
-              borderColor: "primary.light",
-              transform: snapshot.isDragging
-                ? "rotate(2deg)"
-                : "translateY(-2px)",
-            },
-          }}
-          style={provided.draggableProps.style}
+          style={{ ...provided.draggableProps.style, paddingTop: "12px" }}
         >
-          <CardContent sx={{ p: 2, "&:last-child": { pb: 2 } }}>
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="flex-start"
-              gap={1}
-            >
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  flex: 1,
-                  fontWeight: 600,
-                  color: "text.primary",
-                  lineHeight: 1.4,
-                }}
-              >
-                {task.title}
-              </Typography>
+          <Card
+            sx={{
+              mb: 1.5,
+              pt: 2,
+              cursor: snapshot.isDragging ? "grabbing" : "grab",
+              position: "relative",
+              overflow: "visible",
+              border: "1px solid",
+              borderColor: snapshot.isDragging ? "primary.main" : "transparent",
+              boxShadow: snapshot.isDragging ? 4 : undefined,
+              transition: "all 0.2s ease-in-out",
+              opacity: snapshot.isDragging ? 0.9 : 1,
+              "&:hover": {
+                borderColor: "primary.light",
+                transform: !snapshot.isDragging ? "translateY(-3.5px)" : "",
+              },
+            }}
+          >
+            <CardContent sx={{ p: 2, "&:last-child": { pb: 2 } }}>
               <Box
+                display="flex"
+                justifyContent="space-between"
+                alignItems="flex-start"
+                gap={1}
+              >
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    flex: 1,
+                    fontWeight: 600,
+                    color: "text.primary",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {task.title}
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: 0.5,
+                    opacity: 0,
+                    transition: "opacity 0.15s ease-in-out",
+                    ".MuiCard-root:hover &": {
+                      opacity: 1,
+                    },
+                  }}
+                >
+                  <IconButton
+                    size="small"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onEdit(task);
+                    }}
+                    sx={{
+                      color: "text.secondary",
+                      "&:hover": {
+                        color: "primary.main",
+                        backgroundColor: "primary.light",
+                      },
+                    }}
+                  >
+                    <EditOutlinedIcon fontSize="small" />
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onDelete(task.id);
+                    }}
+                    sx={{
+                      color: "text.secondary",
+                      "&:hover": {
+                        color: "error.main",
+                        backgroundColor: "error.light",
+                      },
+                    }}
+                  >
+                    <DeleteOutlineIcon fontSize="small" />
+                  </IconButton>
+                </Box>
+              </Box>
+              <Typography
+                variant="body2"
+                color="text.secondary"
                 sx={{
-                  display: "flex",
-                  gap: 0.5,
-                  opacity: 0,
-                  transition: "opacity 0.15s ease-in-out",
-                  ".MuiCard-root:hover &": {
-                    opacity: 1,
-                  },
+                  mt: 1,
+                  lineHeight: 1.5,
+                  display: "-webkit-box",
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
                 }}
               >
-                <IconButton
-                  size="small"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onEdit(task);
-                  }}
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": {
-                      color: "primary.main",
-                      backgroundColor: "primary.light",
-                    },
-                  }}
-                >
-                  <EditOutlinedIcon fontSize="small" />
-                </IconButton>
-                <IconButton
-                  size="small"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onDelete(task.id);
-                  }}
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": {
-                      color: "error.main",
-                      backgroundColor: "error.light",
-                    },
-                  }}
-                >
-                  <DeleteOutlineIcon fontSize="small" />
-                </IconButton>
-              </Box>
-            </Box>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                mt: 1,
-                lineHeight: 1.5,
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-              }}
-            >
-              {task.description}
-            </Typography>
-          </CardContent>
-        </Card>
+                {task.description}
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
       )}
     </Draggable>
   );
