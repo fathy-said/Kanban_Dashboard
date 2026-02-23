@@ -1,68 +1,52 @@
-import { useState, useMemo } from "react";
 import { DashboardTemplate } from "../components/templates/DashboardTemplate";
 import { KanbanBoard } from "../components/organisms/KanbanBoard";
 import { Modal } from "../components/atoms/Modal";
 import { TaskForm } from "../components/molecules/TaskForm";
-import { MOCK_TASKS } from "../features/tasks/mock/tasks.mock";
+import { useTaskStore } from "../features/tasks/store/taskStore";
 import type {
-  Task,
   TaskFormData,
   TaskColumn,
 } from "../features/tasks/types/task.types";
 
 export const DashboardPage = () => {
-  const [tasks, setTasks] = useState<Task[]>(MOCK_TASKS);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingTask, setEditingTask] = useState<Task | undefined>(undefined);
+  const {
+    searchQuery,
+    isModalOpen,
+    editingTask,
+    setSearchQuery,
+    openCreateModal,
+    openEditModal,
+    closeModal,
+    createTask,
+    updateTask,
+    deleteTask,
+    getFilteredTasks,
+  } = useTaskStore();
 
-  const filteredTasks = useMemo(() => {
-    if (!searchQuery.trim()) return tasks;
-    const query = searchQuery.toLowerCase();
-    return tasks.filter(
-      (task) =>
-        task.title.toLowerCase().includes(query) ||
-        task.description.toLowerCase().includes(query),
-    );
-  }, [tasks, searchQuery]);
+  const filteredTasks = getFilteredTasks();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleAddTask = (_column: TaskColumn) => {
-    // Column parameter is required by KanbanBoard interface for future drag-and-drop implementation
-    setEditingTask(undefined);
-    setIsModalOpen(true);
+  const handleAddTask = (column: TaskColumn) => {
+    openCreateModal(column);
   };
 
-  const handleEditTask = (task: Task) => {
-    setEditingTask(task);
-    setIsModalOpen(true);
+  const handleEditTask = (taskId: string) => {
+    const task = filteredTasks.find((t) => t.id === taskId);
+    if (task) {
+      openEditModal(task);
+    }
   };
 
   const handleDeleteTask = (taskId: string) => {
-    setTasks((prev) => prev.filter((task) => task.id !== taskId));
+    deleteTask(taskId);
   };
 
   const handleSubmitTask = (formData: TaskFormData) => {
     if (editingTask) {
-      setTasks((prev) =>
-        prev.map((task) =>
-          task.id === editingTask.id ? { ...task, ...formData } : task,
-        ),
-      );
+      updateTask(editingTask.id, formData);
     } else {
-      const newTask: Task = {
-        id: Date.now().toString(),
-        ...formData,
-      };
-      setTasks((prev) => [...prev, newTask]);
+      createTask(formData);
     }
-    setIsModalOpen(false);
-    setEditingTask(undefined);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setEditingTask(undefined);
+    closeModal();
   };
 
   return (
@@ -74,16 +58,16 @@ export const DashboardPage = () => {
         <KanbanBoard
           tasks={filteredTasks}
           onAddTask={handleAddTask}
-          onEditTask={handleEditTask}
+          onEditTask={(task) => handleEditTask(task.id)}
           onDeleteTask={handleDeleteTask}
         />
       </DashboardTemplate>
 
-      <Modal open={isModalOpen} onClose={handleCloseModal}>
+      <Modal open={isModalOpen} onClose={closeModal}>
         <TaskForm
           task={editingTask}
           onSubmit={handleSubmitTask}
-          onCancel={handleCloseModal}
+          onCancel={closeModal}
         />
       </Modal>
     </>
