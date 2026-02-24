@@ -9,6 +9,18 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Disable HTTP caching for API responses (avoid 304 without body in deployments)
+app.disable("etag");
+app.use((req, res, next) => {
+  res.set(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate",
+  );
+  res.set("Pragma", "no-cache");
+  res.set("Expires", "0");
+  next();
+});
+
 // Create json-server router
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
