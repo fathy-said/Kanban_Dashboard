@@ -637,8 +637,8 @@
       "id": "3b218ec6-5d3f-408c-96f5-f52d62b25e94",
       "title": "adsfafasfasfsafasfaf",
       "description": "asdfasfasfdadfafaf",
-      "column": "backlog",
-      "order": -1
+      "column": "in_progress",
+      "order": -1.125
     }
   ]
 }
