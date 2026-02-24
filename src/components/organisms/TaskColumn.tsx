@@ -41,8 +41,9 @@ export const TaskColumn = ({
 
   const deleteTask = useDeleteTask();
 
-  // Flatten all pages into single array
-  const tasks = data?.pages.flatMap((page) => page.data) ?? [];
+  // Flatten all pages into single array, filtering out undefined tasks
+  const tasks =
+    data?.pages.flatMap((page) => page.data?.filter(Boolean) ?? []) ?? [];
   const total = data?.pages[0]?.total ?? 0;
 
   const handleDeleteTask = useCallback(
@@ -141,15 +142,17 @@ export const TaskColumn = ({
                 Loading...
               </Box>
             ) : (
-              tasks.map((task: Task, index: number) => (
-                <TaskCard
-                  key={String(task.id)}
-                  task={task}
-                  index={index}
-                  onEdit={onEditTask}
-                  onDelete={handleDeleteTask}
-                />
-              ))
+              tasks
+                .filter(Boolean)
+                .map((task: Task, index: number) => (
+                  <TaskCard
+                    key={task?.id ?? `task-${index}`}
+                    task={task}
+                    index={index}
+                    onEdit={onEditTask}
+                    onDelete={handleDeleteTask}
+                  />
+                ))
             )}
             {provided.placeholder}
 
