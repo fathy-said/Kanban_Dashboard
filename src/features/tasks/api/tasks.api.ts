@@ -63,7 +63,8 @@ export const getTasks = async ({
   // No search - use server-side pagination
   const params: Record<string, string | number> = {
     _page: page,
-    _per_page: limit,
+    // json-server uses _limit for pagination
+    _limit: limit,
     _sort: "order",
   };
 
@@ -71,13 +72,24 @@ export const getTasks = async ({
     params.column = column;
   }
 
-  const response = await apiClient.get<JsonServerResponse<Task>>("/tasks", {
-    params,
-  });
+  const response = await apiClient.get<JsonServerResponse<Task> | Task[]>(
+    "/tasks",
+    {
+      params,
+    },
+  );
 
+  // json-server returns an array body with X-Total-Count header
+  if (Array.isArray(response.data)) {
+    const data = response.data;
+    const total = Number(response.headers["x-total-count"]) || data.length;
+    return { data, total };
+  }
+
+  // Fallback for paginated responses shaped as { data, items }
   return {
-    data: response.data.data,
-    total: response.data.items,
+    data: response.data.data ?? [],
+    total: response.data.items ?? response.data.data?.length ?? 0,
   };
 };
 
