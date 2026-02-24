@@ -2,6 +2,15 @@
 
 A modern, interactive Kanban board application built with React 19, TypeScript, and Material-UI. This application allows users to manage tasks across different stages of a workflow using drag-and-drop functionality.
 
+## 🚀 Live Demo
+
+Frontend & API:
+https://kanbandashboard-production.up.railway.app/
+⚠ Note:
+The server runs on Railway free tier and may take 20–30 seconds to respond on the first request due to cold start.
+
+---
+
 ![React](https://img.shields.io/badge/React-19.2.0-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue)
 ![MUI](https://img.shields.io/badge/MUI-7.3.8-purple)
