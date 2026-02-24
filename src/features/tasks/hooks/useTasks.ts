@@ -74,7 +74,7 @@ export const useInfiniteTasks = ({
       }),
     getNextPageParam: (lastPage, allPages) => {
       const totalLoaded = allPages.reduce(
-        (acc, page) => acc + (page.data?.length ?? 0),
+        (acc, page) => acc + (page?.data?.length ?? 0),
         0,
       );
       return totalLoaded < lastPage.total ? allPages.length + 1 : undefined;
