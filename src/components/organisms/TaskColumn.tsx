@@ -42,10 +42,7 @@ export const TaskColumn = ({
   const deleteTask = useDeleteTask();
 
   // Flatten all pages into single array
-  const tasks =
-    data?.pages
-      .flatMap((page) => page?.data ?? [])
-      .filter((task): task is Task => Boolean(task)) ?? [];
+  const tasks = data?.pages.flatMap((page) => page.data) ?? [];
   const total = data?.pages[0]?.total ?? 0;
 
   const handleDeleteTask = useCallback(
